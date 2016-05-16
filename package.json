@@ -1,0 +1,21 @@
+{
+  "name": "backnone-starter",
+  "version": "1.0.0",
+  "description": "This is to serve backbone starter.",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.13.4"
+  },
+  "keywords": [
+  "backbone",
+  "node"
+  ],
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Qian Cheng",
+  "license": "ISC"
+}
