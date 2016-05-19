@@ -4,18 +4,30 @@
   "description": "This is to serve backbone starter.",
   "main": "server.js",
   "dependencies": {
+    "bourbon-neat": "^1.7.4",
     "cors": "^2.7.1",
     "express": "^4.13.4"
   },
   "keywords": [
-  "backbone",
-  "node"
+    "backbone",
+    "node"
   ],
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "Qian Cheng",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubetrio/backbone-require-bourbon-neat-react-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rubetrio/backbone-require-bourbon-neat-react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/rubetrio/backbone-require-bourbon-neat-react-boilerplate#readme"
 }

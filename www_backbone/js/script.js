@@ -1,11 +1,24 @@
 $(function(){
 
-  TestView = Backbone.View.extend({
-    initialize: function(){
-      console.log('sampleView has been created');
-    }
-  });
+  var self = this;
+  // self.addName = addName;
+  // self.removeName = removeName;
 
-  var testing_view = new TestView({ el: $("#testing_id") });
-
+  var nameCollections = new NameCollections();
+  var i = 0;
+  //initialize NameListView with element given, model as nameCollections.
+  var nameList = new NameListView({collection: nameCollections});
+  //
+  // function addName(){
+  //   var input = $('#name').val();
+  //   var name = new Name({name: input, id: ++i});
+  //   nameCollections.push(name);
+  //   console.log(nameCollections);
+  // }
+  //
+  // function removeName(id){
+  //   nameCollections.remove(id);
+  //   console.log('deleted');
+  // }
+  var formView = new FormView();
 });
