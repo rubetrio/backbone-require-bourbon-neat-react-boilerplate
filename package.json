@@ -6,15 +6,15 @@
   "dependencies": {
     "bourbon-neat": "^1.7.4",
     "cors": "^2.7.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.1"
   },
   "keywords": [
     "backbone",
     "node"
   ],
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-sass": "^2.3.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

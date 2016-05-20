@@ -51,11 +51,11 @@ var NameView2 = Backbone.View.extend({
 
 var FormView = Backbone.View.extend({
   el: '.testing',
-
-  events: {
-    'click button#addName' : 'addName'
-  },
-
+  //
+  // events: {
+  //   'click button#addName' : 'addName'
+  // },
+  //
   initialize: function(){
     _.bindAll(this, 'render', 'addName');
     this.collection = new NameCollections();
@@ -64,7 +64,8 @@ var FormView = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.append('<div class="three"><input type="text" id="name" placeholder="Insert Your Name"/></div><div class="one"><button type="submit" id="addName">Add</button></div>');
+    // this.$el.append('<div class="three"><input type="text" id="name" placeholder="Insert Your Name"/></div><div class="one"><button type="submit" id="addName">Add</button></div>');
+    ReactDOM.render(React.createElement(ReactFormView, null), document.getElementById('testing'));
     $('#testing_id').append('<ul></ul>');
   },
 

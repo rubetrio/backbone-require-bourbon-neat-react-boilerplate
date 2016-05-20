@@ -6,6 +6,19 @@ $mobile: new-breakpoint(max-width 480px 4);
 .wrapper{
   @include outer-container;
 
+
+  @include media(max-width 480px, 4) {
+    .three {
+      @include span-columns(3 of 4);
+    }
+    .one {
+      @include span-columns(1 of 4);
+    }
+    .two{
+      @include span-columns(2 of 4);
+    }
+  }
+
   .testing{
     @include span-columns(6);
     @include media(max-width 480px, 4) {
@@ -34,12 +47,12 @@ $mobile: new-breakpoint(max-width 480px 4);
   .row{
     @include fill-parent();
     @include row();
-    #removeName {
-      @include span-columns(2);
-    }
-    #editName {
-      @include span-columns(2);
-    }
+    // #removeName {
+    //   @include span-columns(2);
+    // }
+    // #editName {
+    //   @include span-columns(2);
+    // }
   }
 }
 

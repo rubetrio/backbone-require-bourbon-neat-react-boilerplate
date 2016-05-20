@@ -4,10 +4,10 @@ $(function(){
   // self.addName = addName;
   // self.removeName = removeName;
 
-  var nameCollections = new NameCollections();
+  // var nameCollections = new NameCollections();
   var i = 0;
   //initialize NameListView with element given, model as nameCollections.
-  var nameList = new NameListView({collection: nameCollections});
+  // var nameList = new NameListView({collection: nameCollections});
   //
   // function addName(){
   //   var input = $('#name').val();
@@ -20,5 +20,6 @@ $(function(){
   //   nameCollections.remove(id);
   //   console.log('deleted');
   // }
-  var formView = new FormView();
+  // var formView = new FormView();
+
 });
