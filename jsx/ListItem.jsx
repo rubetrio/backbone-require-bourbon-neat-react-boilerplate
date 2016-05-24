@@ -8,14 +8,17 @@ define(['react', 'reactdom'], function(React, ReactDOM){
     },
     componentDidMount: function(){
       console.log('call after mount to dom');
+      this.props.model.on('change remove', function(){
+        this.forceUpdate();
+      }.bind(this));
     },
     componentWillUnmount: function(){
       console.log('call before unmount from dom');
     },
     render: function(){
       return (
-        <li>
-          this.props.model.item
+        <li key={this.props.model.cid}>
+          {this.props.model.get('name')}
         </li>
       );
     }

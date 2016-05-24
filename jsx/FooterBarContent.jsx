@@ -14,7 +14,7 @@ define(['react', 'reactdom'], function(React, ReactDOM){
     },
     render: function(){
       return (
-        <div>
+        <div className="row">
           <a className="button">{this.props.button.one}</a>
           <a className="button">{this.props.button.two}</a>
           <a className="button">{this.props.button.three}</a>

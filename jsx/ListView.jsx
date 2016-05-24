@@ -8,6 +8,9 @@ define(['react', 'reactdom', 'components/layout/ListItem'], function(React, Reac
     },
     componentDidMount: function(){
       console.log('call after mount to dom');
+      this.props.collection.on('add change remove', function(){
+        this.forceUpdate();
+      }.bind(this));
     },
     componentWillUnmount: function(){
       console.log('call before unmount from dom');
@@ -20,7 +23,7 @@ define(['react', 'reactdom', 'components/layout/ListItem'], function(React, Reac
       });
       return (
         <div className="list">
-          <ul className="list-item">
+          <ul className="list-item" key={this.props.collection.cid}>
             {listItem}
           </ul>
         </div>

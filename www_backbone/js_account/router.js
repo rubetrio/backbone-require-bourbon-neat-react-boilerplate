@@ -7,6 +7,7 @@ define([
   'account/AccountView',
   'name/react-form-view',
   'name/name-collection',
+  'name/name-model',
   'components/common/HeaderBar',
   'components/common/HeaderBarContent',
   'components/common/FooterBar',
@@ -15,7 +16,7 @@ define([
   'components/forms/FormItem',
   'components/layout/ListView',
   'components/layout/ListItem'
-], function($, _, Backbone, ReactDOM, React, AccountView, ReactFormView, NameList, HeaderBar, HeaderBarContent, FooterBar, FooterBarContent, FormView, FormItem,
+], function($, _, Backbone, ReactDOM, React, AccountView, ReactFormView, NameList, Name, HeaderBar, HeaderBarContent, FooterBar, FooterBarContent, FormView, FormItem,
       ListView, ListItem){
 
   var nameList = new NameList();
@@ -47,6 +48,8 @@ define([
     },
 
     showDefault: function(){
+      nameList.push(new Name({name: 'Boon Kiat'}));
+      nameList.push(new Name({name: 'Woon Chee'}));
       console.log('default');
       ReactDOM.render(
         React.createElement(HeaderBar, {header: 'FSM Social', button: {one: "Default", two: "Add"}}),
@@ -60,6 +63,8 @@ define([
         React.createElement(FooterBar, {header: 'FSM Social', button: {one: "Home", two: "Track", three: "Social", four: "Trade", five: "MyFSM"}}),
         document.getElementById('nav-footer')
       );
+      nameList.push(new Name({name: 'Qian Cheng'}));
+      console.log(nameList);
     }
   });
 

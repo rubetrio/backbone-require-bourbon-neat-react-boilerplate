@@ -79,15 +79,17 @@ $mobile: new-breakpoint(max-width 480px, 4);
       text-align: center;
       .row{
         height: 36px;
+        display: flex;
       }
       height: 36px;
       h4 {
         display: inline-block;
-        margin: 0;
-        padding: 8px;
+        margin: auto;
+        // padding: 8px;
         color: #fff;
       }
       a{
+        margin: auto;
         padding: 8px;
         &.button {
           @include media($mobile) {
@@ -99,6 +101,45 @@ $mobile: new-breakpoint(max-width 480px, 4);
       }
     }
   }
+}
+
+#nav-footer {
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 9999;
+  height: 36px;
+  position: fixed;
+  height: 36px;
+  background-color: #ef473a;
+  .footer-content{
+    @include media(max-width 480px, 5) {
+      .row {
+        height: 36px;
+        display: flex;
+      }
+      a {
+        // @include span-columns(1 of 5);
+        // @include columns(1 3em);
+        // @include column-span(5);
+        @include pad();
+        @include reset-display();
+        &.button {
+          @include media($mobile) {
+            padding: 3px;
+            margin: auto;
+          }
+          background-color: tint(#ef473a, 30%);
+          padding: 5px 10px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+#list-view{
+  margin-top: 50px;
 }
 
 .row{

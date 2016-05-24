@@ -17,7 +17,7 @@ define(['react', 'reactdom'], function (React, ReactDOM) {
     render: function () {
       return React.createElement(
         'div',
-        null,
+        { className: 'row' },
         React.createElement(
           'a',
           { className: 'button' },

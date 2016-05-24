@@ -10,6 +10,10 @@ define(['react', 'reactdom'], function (React, ReactDOM) {
     },
     componentDidMount: function () {
       console.log('call after mount to dom');
+      //update react view when model changed / removed
+      // this.props.model.on('change remove', function () {
+      //   this.forceUpdate();
+      // }.bind(this));
     },
     componentWillUnmount: function () {
       console.log('call before unmount from dom');
@@ -17,8 +21,8 @@ define(['react', 'reactdom'], function (React, ReactDOM) {
     render: function () {
       return React.createElement(
         'li',
-        null,
-        'this.props.model.item'
+        { key: this.props.model.cid },
+        this.props.model.get('name')
       );
     }
   });

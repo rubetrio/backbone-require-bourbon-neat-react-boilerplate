@@ -10,6 +10,10 @@ define(['react', 'reactdom', 'components/layout/ListItem'], function (React, Rea
     },
     componentDidMount: function () {
       console.log('call after mount to dom');
+      //update react view when add new item / change existing item / remove item / remove collection 
+      this.props.collection.on('add change remove', function () {
+        this.forceUpdate();
+      }.bind(this));
     },
     componentWillUnmount: function () {
       console.log('call before unmount from dom');
@@ -23,7 +27,7 @@ define(['react', 'reactdom', 'components/layout/ListItem'], function (React, Rea
         { className: 'list' },
         React.createElement(
           'ul',
-          { className: 'list-item' },
+          { className: 'list-item', key: this.props.collection.cid },
           listItem
         )
       );
