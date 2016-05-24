@@ -1,8 +1,12 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var babel = require('gulp-babel');
+var minifyCss = require('gulp-minify-css');
+var rename = require('gulp-rename');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  jsx: ['./jsx/**/*.jsx']
 };
 
 gulp.task('sass', function(done) {
@@ -14,9 +18,25 @@ gulp.task('sass', function(done) {
       ]
     }))
     .on('error', sass.logError)
-    .pipe(gulp.dest('www_backbone/css/'));
+    .pipe(gulp.dest('www_backbone/css/'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(minifyCss())
+    .pipe(gulp.dest('www_backbone/css/'))
+    .on('end', done);
 });
 
-gulp.task('default', function() {
-  gulp.watch('scss/app.scss', ['sass']);
+gulp.task('jsx', function(done){
+  gulp.src(paths.jsx)
+    .pipe(babel({
+      presets: ['react']
+    }))
+    .pipe(gulp.dest('www_backbone/jsx'))
+    .on('end', done);
 });
+
+gulp.task('watch', function() {
+  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.jsx, ['jsx']);
+});
+
+gulp.task('default', ['watch']);

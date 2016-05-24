@@ -1,73 +1,165 @@
 @import "bourbon";
 @import "neat";
 
-$mobile: new-breakpoint(max-width 480px 4);
+$mobile: new-breakpoint(max-width 480px, 4);
 
-.wrapper{
-  @include outer-container;
+// .wrapper {
+//   @include outer-container;
+//
+//
+//   @include media(max-width 480px, 4) {
+//     .three {
+//       @include span-columns(3 of 4);
+//     }
+//     .one {
+//       @include span-columns(1 of 4);
+//     }
+//     .two{
+//       @include span-columns(2 of 4);
+//     }
+//   }
+//
+//   .testing{
+//     @include span-columns(6);
+//     @include media(max-width 480px, 4) {
+//       @include span-columns(4);
+//       @include fill-parent;
+//       @include omega(4n);
+//       .three {
+//         @include span-columns(3 of 4);
+//       }
+//       .one {
+//         @include span-columns(1 of 4);
+//       }
+//     }
+//   }
+//
+//   .result{
+//     @include span-columns(6);
+//     @include media(max-width 480px, 4) {
+//       @include padding(10px null null null);
+//       @include span-columns(4);
+//       @include fill-parent;
+//       font-family: $helvetica;
+//     }
+//   }
+//
+//   .row{
+//     @include fill-parent();
+//     @include row();
+//     // #removeName {
+//     //   @include span-columns(2);
+//     // }
+//     // #editName {
+//     //   @include span-columns(2);
+//     // }
+//   }
+// }
 
+.nav-header {
+  @include span-columns(12);
+  @include fill-parent();
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 9999;
+  height: 36px;
+  position: fixed;
+  height: 36px;
+  background-color: #ef473a;
 
   @include media(max-width 480px, 4) {
-    .three {
-      @include span-columns(3 of 4);
-    }
-    .one {
-      @include span-columns(1 of 4);
-    }
-    .two{
-      @include span-columns(2 of 4);
-    }
-  }
-
-  .testing{
-    @include span-columns(6);
-    @include media(max-width 480px, 4) {
-      @include span-columns(4);
-      @include fill-parent;
-      @include omega(4n);
-      .three {
-        @include span-columns(3 of 4);
-      }
-      .one {
-        @include span-columns(1 of 4);
-      }
-    }
-  }
-
-  .result{
-    @include span-columns(6);
-    @include media(max-width 480px, 4) {
-      @include padding(10px null null null);
-      @include span-columns(4);
-      @include fill-parent;
-      font-family: $helvetica;
-    }
-  }
-
-  .row{
+  @include span-columns(4);
     @include fill-parent();
-    @include row();
-    // #removeName {
-    //   @include span-columns(2);
-    // }
-    // #editName {
-    //   @include span-columns(2);
-    // }
+  }
+  .header-bar{
+    @include outer-container;
+    height: 36px;
+    .header-content{
+      text-align: center;
+      .row{
+        height: 36px;
+      }
+      height: 36px;
+      h4 {
+        display: inline-block;
+        margin: 0;
+        padding: 8px;
+        color: #fff;
+      }
+      a{
+        padding: 8px;
+        &.button {
+          @include media($mobile) {
+            padding: 3px;
+          }
+          background-color: tint(#ef473a, 30%);
+          padding: 5px 10px;
+        }
+      }
+    }
   }
 }
 
-#{$all-buttons} {
-  border-radius: 5px;
-  background-color: #2c3e50;
+.row{
+  @include fill-parent();
+  @include row();
+}
+
+.pull-right{
+  float: right;
+}
+
+.pull-left{
+  float: left;
+}
+
+.button{
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: #477DCA;
+  border-radius: 3px;
   border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  color: #fff;
   cursor: pointer;
-  font-family: $monospace;
+  display: inline-block;
+  font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+#{$all-buttons} {
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: #477DCA;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 #{$all-buttons-hover},

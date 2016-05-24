@@ -3,7 +3,9 @@ define([
   'underscore',
   'backbone',
   'router', // Request router.js
-], function($, _, Backbone, Router){
+  'react',
+  'reactdom'
+], function($, _, Backbone, Router, React, ReactDOM){
   var initialize = function(){
     // Pass in our Router module and call it's initialize function
     Router.initialize();

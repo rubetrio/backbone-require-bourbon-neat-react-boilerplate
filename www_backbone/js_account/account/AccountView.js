@@ -5,7 +5,7 @@ define([
   // Using the Require.js text! plugin, we are loaded raw text
   // which will be used as our views primary template
   'text!account/AccountList.html',
-  'AccountCollection'
+  'account/AccountCollection'
 ], function($, _, Backbone, AccountList,AccountCollection){
 
   var AccountView = Backbone.View.extend({

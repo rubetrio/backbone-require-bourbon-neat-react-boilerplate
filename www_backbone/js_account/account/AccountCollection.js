@@ -2,7 +2,7 @@ define([
   'underscore',
   'backbone',
   // Pull in the Model module from above
-  'AccountModel'
+  'account/AccountModel'
 ],function(_,Backbone,Account){
 
   var AccountCollection = Backbone.Collection.extend({
