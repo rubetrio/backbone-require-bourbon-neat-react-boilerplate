@@ -16,12 +16,13 @@ define(['react', 'reactdom'], function(React, ReactDOM){
       console.log('call before unmount from dom');
     },
     render: function(){
+      // console.log(this.props.model.cid);
       return (
         <li className="item" key={this.props.model.cid}>
           {this.props.model.get('name')}
         </li>
       );
-      
+
     }
   });
 

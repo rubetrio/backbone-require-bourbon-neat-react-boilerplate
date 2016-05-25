@@ -1,6 +1,7 @@
+'use strict';
+
 // var require = require('requirejs');
 // var React = require('react');
-
 define(['jquery', 'backbone', 'underscore', 'react', 'reactdom', 'name/name-model'], function ($, Backbone, _, React, ReactDOM, Name) {
   Backbone.sync = function (method, model, success, error) {
     success();
@@ -9,10 +10,10 @@ define(['jquery', 'backbone', 'underscore', 'react', 'reactdom', 'name/name-mode
   var ReactFormView = React.createClass({
     displayName: 'ReactFormView',
 
-    getInitialState: function(){
+    getInitialState: function getInitialState() {
       return this.props.nameList;
     },
-    addName: function () {
+    addName: function addName() {
       var name = new Name({ name: $('#name').val() });
       this.state.push(name);
       console.log(this.state);
@@ -21,7 +22,7 @@ define(['jquery', 'backbone', 'underscore', 'react', 'reactdom', 'name/name-mode
       // this.setState({name: ''});
       ReactDOM.render(React.createElement(ReactNameView, { nameList: this.state }), document.getElementById('content'));
     },
-    render: function () {
+    render: function render() {
       return React.createElement(
         'div',
         null,
@@ -41,7 +42,7 @@ define(['jquery', 'backbone', 'underscore', 'react', 'reactdom', 'name/name-mode
         )
       );
     },
-    getNameModel: function () {
+    getNameModel: function getNameModel() {
       return this.props;
     }
 
@@ -50,19 +51,20 @@ define(['jquery', 'backbone', 'underscore', 'react', 'reactdom', 'name/name-mode
   var ReactNameView = React.createClass({
     displayName: 'ReactNameView',
 
-    componentDidMount: function () {
+    componentDidMount: function componentDidMount() {
       this.props.nameList.on('change remove', function () {
         this.forceUpdate();
       }.bind(this));
     },
-    render: function () {
+    render: function render() {
       var listOfNames = this.props.nameList.map(function (name) {
-        var removeName = function () {
+        console.log(name);
+        var removeName = function removeName() {
           console.log('remove');
           name.destroy();
         };
 
-        var editName = function () {
+        var editName = function editName() {
           // var cid = {name.cid};
           console.log('edit ');
           ReactDOM.render(React.createElement(ReactEditView, { name: name }), document.getElementById(name.cid));
@@ -104,27 +106,14 @@ define(['jquery', 'backbone', 'underscore', 'react', 'reactdom', 'name/name-mode
   var ReactEditView = React.createClass({
     displayName: 'ReactEditView',
 
-    getInitialState: function () {
-      // return {
-      //   name: this.props.name,
-      //   showDiv: true
-      // };
+    getInitialState: function getInitialState() {
       return this.props.name;
     },
-    render: function () {
-      // var div;
-      // if(this.state.showDiv){
-      //   div = <div><input type="text" id="edit" className="three" /><button id="change" className="one" onClick={this.editName} >Submit</button></div>;
-      // } else {
-      //   div = <div></div>
-      // }
-      // return (
-      //   <div>{div}</div>
-      // );
+    render: function render() {
       return React.createElement(
         'div',
         null,
-        React.createElement('input', { type: 'text', id: 'edit', className: 'three' }),
+        React.createElement('input', { type: 'text', id: 'edit', className: 'three', value: name }),
         React.createElement(
           'button',
           { id: 'change', className: 'one', onClick: this.editName },
@@ -132,22 +121,17 @@ define(['jquery', 'backbone', 'underscore', 'react', 'reactdom', 'name/name-mode
         )
       );
     },
-    editName: function () {
-      // this.props.name.set({name: $('#edit').val()});
-      // var changedName = $('#edit').val();
+    editName: function editName() {
       this.state.set({ name: $('#edit').val() });
-      ReactDOM.unmountComponentAtNode(document.getElementById(this.state.cid));
-      // this.setState({showDiv: false});
+      ReactDOM.unmountComponentAtNode(document.getElementById(name.cid));
     },
-    handleChange: function (e) {
+    handleChange: function handleChange(e) {
       console.log(this.state);
     },
-    componentWillUnmount: function () {
+    componentWillUnmount: function componentWillUnmount() {
       console.log('unmount');
     }
   });
   // var nameList = new NameList();
-  //render the form
-  // ReactDOM.render(<ReactFormView />, document.getElementById('testing'));
   return ReactFormView;
 });

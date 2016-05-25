@@ -28,7 +28,7 @@ gulp.task('sass', function(done) {
 gulp.task('jsx', function(done){
   gulp.src(paths.jsx)
     .pipe(babel({
-      presets: ['react']
+      presets: ['react', 'es2015']
     }))
     .pipe(gulp.dest('.'))
     .on('end', done);

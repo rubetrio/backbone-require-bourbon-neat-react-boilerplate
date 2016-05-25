@@ -1,5 +1,6 @@
 define(['react', 'reactdom', 'name/name-model'], function (React, ReactDOM, Name) {
   var FormItem = React.createClass({
+    input: '',
     getInitialState: function(){
       return this.props.collection;
     },
@@ -15,19 +16,16 @@ define(['react', 'reactdom', 'name/name-model'], function (React, ReactDOM, Name
     render: function(){
       var input;
       return (
-        <div>
-          <input type="text" placeholder="Insert your name" onChange={this.handleChange}/>
-          <button onClick={this.addName}>Add</button>
+        <div className="row">
+          <input className="three" type="text" ref={(r) => this.input = r} placeholder="Insert your name" />
+          <button className="one" onClick={this.addName}>Add</button>
         </div>
       );
     },
     addName: function(){
       var name = new Name();
-      name.set({name: input});
+      name.set({name: this.input.value});
       this.state.push(name);
-    },
-    handleChange: function(e){
-      input = e.target.value;
     }
   });
 

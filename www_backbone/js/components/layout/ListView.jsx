@@ -18,12 +18,12 @@ define(['react', 'reactdom', 'components/layout/ListItem'], function(React, Reac
     render: function(){
       var listItem = this.props.collection.map(function(item){
         return (
-          <ListItem model={item} />
-        )
+          <ListItem model={item} key={item.cid} />
+        );
       });
       return (
         <div className="list">
-          <div className="list-item" key={this.props.collection.cid}>
+          <div className="list-item">
             {listItem}
           </div>
         </div>
