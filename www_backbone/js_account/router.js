@@ -63,6 +63,10 @@ define([
         React.createElement(FooterBar, {header: 'FSM Social', button: {one: "Home", two: "Track", three: "Social", four: "Trade", five: "MyFSM"}}),
         document.getElementById('nav-footer')
       );
+      nameList.push(new Name({name: 'Wern Sheng'}));
+      nameList.push(new Name({name: 'Qian Cheng'}));
+      nameList.push(new Name({name: 'Qian Cheng'}));
+      nameList.push(new Name({name: 'Qian Cheng'}));
       nameList.push(new Name({name: 'Qian Cheng'}));
       console.log(nameList);
     }
