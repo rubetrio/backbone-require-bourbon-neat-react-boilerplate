@@ -1,1 +1,17 @@
-<div id="account-id">Hello world.</div>
+
+<H2>Hello world.</H2>
+
+<table>
+  <%
+    console.log(items);
+     _.each(items,function(item){
+       var f = item.get('name');
+  %>
+    <tr>
+      <td><%=f%></td>
+    </tr>
+  <%
+    });
+  %>
+
+</table>

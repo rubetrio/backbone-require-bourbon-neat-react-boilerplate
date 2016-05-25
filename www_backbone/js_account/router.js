@@ -74,7 +74,6 @@ define([
       // Call render on the module we loaded in via the dependency array
       // 'views/projects/list'
       var accountView = new AccountView();
-      accountView.render();
     });
     app_router.on('defaultAction', function(actions){
       // We have no matching route, lets just log what the URL was
