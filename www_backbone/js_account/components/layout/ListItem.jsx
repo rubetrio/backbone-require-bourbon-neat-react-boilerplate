@@ -17,10 +17,11 @@ define(['react', 'reactdom'], function(React, ReactDOM){
     },
     render: function(){
       return (
-        <li key={this.props.model.cid}>
+        <li className="item" key={this.props.model.cid}>
           {this.props.model.get('name')}
         </li>
       );
+      
     }
   });
 

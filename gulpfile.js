@@ -6,7 +6,7 @@ var rename = require('gulp-rename');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
-  jsx: ['./jsx/**/*.jsx']
+  jsx: ['./**/*.jsx']
 };
 
 gulp.task('sass', function(done) {
@@ -30,7 +30,7 @@ gulp.task('jsx', function(done){
     .pipe(babel({
       presets: ['react']
     }))
-    .pipe(gulp.dest('www_backbone/jsx'))
+    .pipe(gulp.dest('.'))
     .on('end', done);
 });
 

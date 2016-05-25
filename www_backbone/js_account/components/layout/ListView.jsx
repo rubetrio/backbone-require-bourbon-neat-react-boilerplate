@@ -23,9 +23,9 @@ define(['react', 'reactdom', 'components/layout/ListItem'], function(React, Reac
       });
       return (
         <div className="list">
-          <ul className="list-item" key={this.props.collection.cid}>
+          <div className="list-item" key={this.props.collection.cid}>
             {listItem}
-          </ul>
+          </div>
         </div>
       );
     }
