@@ -1,4 +1,4 @@
 node_modules/
 www_backbone/css
-www_backbone/**/*.js
+www_backbone/js/components/**/*.js
 npm-debug.log
