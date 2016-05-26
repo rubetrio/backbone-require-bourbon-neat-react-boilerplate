@@ -5,26 +5,19 @@ define([
   'reactdom',
   'react',
   'account/AccountView',
-  'name/react-form-view',
   'name/name-collection',
   'name/name-model',
-  'components/common/HeaderBar',
-  'components/common/HeaderBarContent',
-  'components/common/FooterBar',
-  'components/common/FooterBarContent',
-  'components/forms/FormView',
-  'components/forms/FormItem',
-  'components/layout/ListView',
-  'components/layout/ListItem'
-], function($, _, Backbone, ReactDOM, React, AccountView, ReactFormView, NameList, Name, HeaderBar, HeaderBarContent, FooterBar, FooterBarContent, FormView, FormItem,
-      ListView, ListItem){
+  'components/templates/ListTemplate',
+  'components/templates/FormTemplate'
+], function($, _, Backbone, ReactDOM, React, AccountView, NameList, Name, ListTemplate, FormTemplate){
 
   var nameList = new NameList();
 
   var AppRouter = Backbone.Router.extend({
     routes: {
-      '': 'showDefault',
+      '': 'showListView',
       'add': 'showAddForm',
+      'list': 'showListView',
       // Define some URL routes
       'account': 'showAccount',
       // Default
@@ -38,8 +31,21 @@ define([
       // var nameList = new NameList();
       // ReactDOM.render(React.createElement(ReactFormView, {nameList: nameList}), document.getElementById('menu'));
       ReactDOM.render(
-        React.createElement(FormView, {collection: nameList}),
-        document.getElementById('form-view')
+        React.createElement(FormTemplate, {
+          collection: nameList,
+          header: 'Add Name',
+          buttons: {
+            header:{},
+            footer:{
+              one: 'Home',
+              two: 'Track',
+              three: 'Social',
+              four: 'Trade',
+              five: 'MyFSM'
+            }
+          }
+        }),
+        document.getElementById('react-view')
       );
     },
 
@@ -47,27 +53,40 @@ define([
       console.log(cid);
     },
 
-    showDefault: function(){
-      nameList.push(new Name({name: 'Boon Kiat'}));
-      nameList.push(new Name({name: 'Woon Chee'}));
+    showListView: function(){
       console.log('default');
+      // ReactDOM.render(
+      //   React.createElement(HeaderBar, {header: 'FSM Social', button: {one: "Default", two: "Add"}}),
+      //   document.getElementById('nav-header')
+      // );
+      // ReactDOM.render(
+      //   React.createElement(ListView, {collection: nameList}),
+      //   document.getElementById('list-view')
+      // );
+      // ReactDOM.render(
+      //   React.createElement(FooterBar, {header: 'FSM Social', button: {one: "Home", two: "Track", three: "Social", four: "Trade", five: "MyFSM"}}),
+      //   document.getElementById('nav-footer')
+      // );
       ReactDOM.render(
-        React.createElement(HeaderBar, {header: 'FSM Social', button: {one: "Default", two: "Add"}}),
-        document.getElementById('nav-header')
+        React.createElement(ListTemplate, {
+          collection: nameList,
+          header: 'FSM Social',
+          buttons: {
+            header: {
+              one: 'Default',
+              two: 'Add'
+            },
+            footer: {
+              one: 'Home',
+              two: 'Track',
+              three: 'Social',
+              four: 'Trade',
+              five: 'MyFSM'
+            }
+          }
+        }),
+        document.getElementById('react-view')
       );
-      ReactDOM.render(
-        React.createElement(ListView, {collection: nameList}),
-        document.getElementById('list-view')
-      );
-      ReactDOM.render(
-        React.createElement(FooterBar, {header: 'FSM Social', button: {one: "Home", two: "Track", three: "Social", four: "Trade", five: "MyFSM"}}),
-        document.getElementById('nav-footer')
-      );
-      nameList.push(new Name({name: 'Wern Sheng'}));
-      nameList.push(new Name({name: 'Qian Cheng'}));
-      nameList.push(new Name({name: 'Qian Cheng'}));
-      nameList.push(new Name({name: 'Qian Cheng'}));
-      nameList.push(new Name({name: 'Qian Cheng'}));
       console.log(nameList);
     }
   });

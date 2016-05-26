@@ -19,8 +19,10 @@ define(['react', 'reactdom', 'components/forms/FormItem'], function(React, React
       //   );
       // }
       return (
-        <div className="form-view">
-          <FormItem collection={this.props.collection}/>
+        <div id="form-view">
+          <div className="form-view">
+            <FormItem collection={this.props.collection}/>
+          </div>
         </div>
       );
     }

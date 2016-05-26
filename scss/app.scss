@@ -80,6 +80,7 @@ $mobile: new-breakpoint(max-width 480px, 4);
       .row{
         height: 36px;
         @include display(flex);
+        flex-direction: row;
       }
       height: 36px;
       h4 {

@@ -19,9 +19,11 @@ define(['react', 'reactdom', 'components/common/FooterBarContent'], function(Rea
       //   )
       // }
       return (
-        <div className='footer-bar'>
-          <div className="footer-content">
-            <FooterBarContent button={this.props.button} />
+        <div id="nav-footer">
+          <div className='footer-bar'>
+            <div className="footer-content">
+              <FooterBarContent button={this.props.button} />
+            </div>
           </div>
         </div>
       );

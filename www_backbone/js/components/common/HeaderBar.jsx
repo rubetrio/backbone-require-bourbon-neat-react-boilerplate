@@ -16,14 +16,16 @@ define(['react', 'reactdom', 'components/common/HeaderBarContent'], function(Rea
       // var HeaderBarContent = function(){
       //   return (
       //     <HeaderBarContent button={this.props.button} header={this.props.header}/>
-      //   )
-      // }
+      //   );
+      // };
       return (
-        <nav className='header-bar'>
-          <div className="header-content">
-            <HeaderBarContent button={this.props.button} header={this.props.header} />
-          </div>
-        </nav>
+        <div className='nav-header'>
+          <nav className='header-bar'>
+            <div className="header-content">
+              <HeaderBarContent button={this.props.button} header={this.props.header} />
+            </div>
+          </nav>
+        </div>
       );
     }
   });

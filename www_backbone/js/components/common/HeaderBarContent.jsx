@@ -13,11 +13,18 @@ define(['react', 'reactdom'], function(React, ReactDOM){
       console.log('call before unmount from dom');
     },
     render: function(){
+      var leftButton, rightButton;
+      if(this.props.button.one !== undefined){
+        leftButton = (<a className="button pull-left">{this.props.button.one}</a>);
+      }
+      if(this.props.button.two !== undefined){
+        rightButton =  (<a className="button pull-right" href="#add">{this.props.button.two}</a>);
+      }
       return (
         <div className="row">
-          <a className="button pull-left">{this.props.button.one}</a>
-          <h4>{this.props.header}</h4>
-          <a className="button pull-right" href="#add">{this.props.button.two}</a>
+          {leftButton}
+            <h4>{this.props.header}</h4>
+          {rightButton}
         </div>
       );
     }

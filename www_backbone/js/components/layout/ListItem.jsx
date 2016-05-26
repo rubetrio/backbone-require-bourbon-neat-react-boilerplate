@@ -8,9 +8,9 @@ define(['react', 'reactdom'], function(React, ReactDOM){
     },
     componentDidMount: function(){
       console.log('call after mount to dom');
-      this.props.model.on('change remove', function(){
-        this.forceUpdate();
-      }.bind(this));
+      // this.props.model.on('change remove', function(){
+      //   this.forceUpdate();
+      // }.bind(this));
     },
     componentWillUnmount: function(){
       console.log('call before unmount from dom');
