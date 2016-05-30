@@ -67,6 +67,9 @@ define([
       //   React.createElement(FooterBar, {header: 'FSM Social', button: {one: "Home", two: "Track", three: "Social", four: "Trade", five: "MyFSM"}}),
       //   document.getElementById('nav-footer')
       // );
+      // nameList.push(new Name({name: 'Boon Kiat'}));
+      // nameList.push(new Name({name: 'Woon Chee'}));
+      // nameList.push(new Name({name: 'Wern Sheng'}));
       ReactDOM.render(
         React.createElement(ListTemplate, {
           collection: nameList,
@@ -87,6 +90,9 @@ define([
         }),
         document.getElementById('react-view')
       );
+      // nameList.push(new Name({name: 'Qian Cheng'}));
+      // nameList.push(new Name({name: 'Woody'}));
+      // nameList.push(new Name({name: 'Kelvin'}));
       console.log(nameList);
     }
   });
@@ -107,6 +113,12 @@ define([
     });
     app_router.on('showEditForm', function(cid){
       console.log('to edit ' + cid);
+    });
+    app_router.on('route:list', function(){
+      console.log("i came to list");
+    });
+    app_router.on('route:add', function(){
+      console.log("i came to add");
     });
     Backbone.history.start();
   };

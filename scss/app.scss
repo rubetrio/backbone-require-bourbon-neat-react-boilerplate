@@ -2,6 +2,23 @@
 @import "neat";
 
 $mobile: new-breakpoint(max-width 480px, 4);
+$primary: #324253;
+$success: #009688;
+$info: #0277bd;
+$warning: #f5833c;
+$danger: #c71f3a;
+$second: #3c7fac;
+$header: #b72e39;
+$header-dark: #a32933;
+$ut: #e53935;
+$stock: #3f51b5;
+$srs: #fdd835;
+$insurance: #00c853;
+$article: #909090;
+$sgs: #ffc703;
+$cash: #618699;
+$profit: #43a047;
+$loss: #ed5565;
 
 // .wrapper {
 //   @include outer-container;
@@ -141,6 +158,86 @@ $mobile: new-breakpoint(max-width 480px, 4);
   }
 }
 
+.table-minimal {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $table-border-color: $base-border-color;
+  $table-border: 1px solid $table-border-color;
+  $table-background: $base-background-color;
+  $table-header-background: lighten($table-background, 10);
+  $table-hover-background: darken($table-background, 2);
+  $table-stripe-background: darken($table-background, 4);
+  $table-stripe-background-hover: darken($table-stripe-background, 5);
+  $table-padding: 0.75em 1em;
+
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+
+  tbody {
+    tr:hover > td, tr:hover > th {
+      background-color: $table-hover-background;
+    }
+    tr:first-child td {
+      border-top: 2px solid $table-border-color;
+    }
+  }
+
+  thead {
+    th {
+      background-color: $table-header-background;
+      border-bottom: 0;
+      padding: $table-padding;
+      text-align: left;
+    }
+  }
+
+  tbody {
+    background-color: $table-background;
+
+    td {
+      border-bottom: 0;
+      border-top: 1px solid $table-border-color;
+      line-height: $base-line-height;
+      padding: $table-padding;
+
+      button {
+        display: inline-block;
+        font-size: 0.7em;
+        line-height: $base-line-height;
+        margin-bottom: 0.3em;
+        margin-right: 0.5em;
+        outline: none;
+        padding: 0.3em 1em;
+        width: 100%;
+
+        @include media($medium-screen) {
+          margin-bottom: 0;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+.frozen-column{
+  position: fixed;
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  left: 0px;
+  width: 80px;
+  // width: 52.891px;
+}
+
 .content{
   top: 36px;
   bottom: 36px;
@@ -158,6 +255,8 @@ $mobile: new-breakpoint(max-width 480px, 4);
 
   .list-item{
     list-style-type: none;
+    overflow-x: scroll;
+    margin-left: 80px;
     @include user-select(none);
     .item{
       padding: 10px 0;
@@ -191,18 +290,79 @@ $mobile: new-breakpoint(max-width 480px, 4);
   z-index: 999;
 }
 
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
 .row{
   @include fill-parent();
   @include row();
 }
 
 .pull-right{
-  float: right;
+  float: right !important;
 }
 
 .pull-left{
-  float: left;
+  float: left !important;
 }
+
+.bg-primary{
+  background: $primary !important;
+}
+.bg-success{
+  background: $success !important;
+}
+.bg-info{
+  background: $info !important;
+}
+.bg-warning{
+  background: $warning !important;
+}
+.bg-danger{
+  background: $danger !important;
+}
+.bg-second{
+  background: $second !important;
+}
+.bg-header{
+  background: $header !important;
+}
+.bg-header-dark{
+  background: $header-dark !important;
+}
+.bg-ut{
+  background: $ut !important;
+}
+.bg-stock{
+  background: $stock !important;
+}
+.bg-srs{
+  background: $srs !important;
+}
+.bg-insurance{
+  background: $insurance !important;
+}
+.bg-article{
+  background: $article !important;
+}
+.bg-sgs{
+  background: $sgs !important;
+}
+.bg-cash{
+  background: $cash !important;
+}
+.bg-profit{
+  background: $profit !important;
+}
+.bg-lose{
+  background: $loss !important;
+}
+
 
 .button{
   -webkit-font-smoothing: antialiased;

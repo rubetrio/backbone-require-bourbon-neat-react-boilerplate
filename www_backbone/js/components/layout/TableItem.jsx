@@ -1,5 +1,5 @@
 define(['react', 'reactdom'], function(React, ReactDOM){
-  var ListItem = React.createClass({
+  var TableItem = React.createClass({
     getInitialState: function(){
       return null;
     },
@@ -18,13 +18,20 @@ define(['react', 'reactdom'], function(React, ReactDOM){
     render: function(){
       // console.log(this.props.model.cid);
       return (
-        <li className="item" key={this.props.model.cid}>
-          {this.props.model.get('name')}
-        </li>
+        <tbody>
+          <tr>
+            <td className="frozen-column">{this.props.symbol.get('name')}</td>
+            <td>{this.props.collection.get('last')}</td>
+            <td>{this.props.collection.get('change')}</td>
+            <td>{this.props.collection.get('volume')}</td>
+            <td>{this.props.collection.get('high')}</td>
+            <td>{this.props.collection.get('low')}</td>
+          </tr>
+        </tbody>
       );
 
     }
   });
 
-  return ListItem;
+  return TableItem;
 });

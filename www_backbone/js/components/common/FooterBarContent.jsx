@@ -4,13 +4,13 @@ define(['react', 'reactdom'], function(React, ReactDOM){
       return null;
     },
     componentWillMount: function(){
-      console.log('call before mount to dom');
+      // console.log('call before mount to dom');
     },
     componentDidMount: function(){
-      console.log('call after mount to dom');
+      // console.log('call after mount to dom');
     },
     componentWillUnmount: function(){
-      console.log('call before unmount from dom');
+      // console.log('call before unmount from dom');
     },
     render: function(){
       return (
